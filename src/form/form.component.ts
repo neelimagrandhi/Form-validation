@@ -13,17 +13,20 @@ export  class Formcomponent{
     val:any;
 
     password:any;
+    msg: string;
+    username: any;
     constructor(private route:Router){
-    }
-  submit(username,password){
+    
+  /*submit(username,password){
       if(username.value.length<=0||password.value.length<=0){
-      return false
+      alert("please enter details")
   }
-  else if(username.value.length>=1&&password.value.length>=1)
+  else if(username.value.length>=1||password.value.length>=1){
     this.route.navigate(["home"])
 }
-
-    /*name($event){
+  }
+}
+   /* name($event){
          var val=$event.target.value
     if(val==""){
         alert("please enter value")
@@ -31,8 +34,16 @@ export  class Formcomponent{
     else{
         return true
     }
-}
-   this.route.navigate(["home"])
-         }
-        }*/
+}*/
     }
+  submit(){
+    if(this.username=="test"&&this.password=="test1")
+    {
+        localStorage.setItem("token","peers123");
+        this.route.navigate(["home"])
+    }
+    else{
+        alert("please enter values")
+    }
+   }
+}
